@@ -3,4 +3,4 @@ project(Labo7)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Labo7 main.cpp)
+add_executable(Labo7 main.cpp matrice.cpp matrice.h)
