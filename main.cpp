@@ -20,9 +20,13 @@ using namespace std;
 
 int main() {
 
-   Matrice matrice1 {{3, 5, 7}, {5, 2, 3}, {1, 0, 2}};
+   Vecteur vecteur1 {1, 0, -7, 4};
+   Matrice matrice1 {{3, 5, 7},
+                     {5, 2, 3},
+                     {1, 0, 2}};
 
 
+   cout << sommeLigne(matrice1);
 
    return EXIT_SUCCESS;
 }

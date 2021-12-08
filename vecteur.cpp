@@ -3,3 +3,25 @@
 //
 
 #include "vecteur.h"
+#include <numeric>
+
+std::ostream& operator <<(std::ostream& os, const std::vector<int>& vecteur)
+{
+   os << '(';
+
+   if (vecteur.begin() != vecteur.end())
+   {
+      std::ostream_iterator<int> sortie(os, ", ");
+      Vecteur::const_iterator it = prev(vecteur.end());
+      copy(vecteur.begin(), it, sortie);
+      os << *it;
+   }
+
+   os << ')';
+   return os;
+}
+
+int somme(const Vecteur& vecteur)
+{
+   return accumulate(vecteur.begin(), vecteur.end(), 0);
+}

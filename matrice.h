@@ -6,10 +6,9 @@
 #define LABO7_MATRICE_H
 
 // TODO: REFLECHIR SI IL FAUT LAISSER L INCLUDE ICI AINSI QUE LES USING
-#include <vector>
 #include <iostream>
-// using Vecteur = std::vector<int>; // TODO: ?
-using Matrice = std::vector<std::vector<int>>;
+#include "vecteur.h"
+using Matrice = std::vector<Vecteur>;
 
 std::ostream& operator<< (std::ostream& os, const Matrice& matrice);
 
@@ -19,11 +18,11 @@ bool estReguliere(const Matrice& matrice);
 
 int minCol(const Matrice&);
 
-std::vector<int> sommeLigne(const Matrice& matrice);
+Vecteur sommeLigne(const Matrice& matrice);
 
-std::vector<int> sommeColonne(const Matrice& matrice);
+Vecteur sommeColonne(const Matrice& matrice);
 
-std::vector<int> vectSommeMin(const Matrice& matrice);
+Vecteur vectSommeMin(const Matrice& matrice);
 
 // TODO : tester le & si necessaire ou pas
 void shuffleMatrice(Matrice& matrice);
