@@ -14,9 +14,15 @@ Compilateur     : Mingw-w64 g++ 11.2.0
 
 #include <cstdlib>
 #include <iostream>
+#include "matrice.h"
+
 using namespace std;
 
 int main() {
 
- return EXIT_SUCCESS;
+   Matrice matrice1 {{3, 5, 7}, {5, 2, 3}, {1, 0, 2}};
+
+
+
+   return EXIT_SUCCESS;
 }
