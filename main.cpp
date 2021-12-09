@@ -27,6 +27,11 @@ int main() {
 
 
    cout << sommeLigne(matrice1);
+	cout << boolalpha;
+	cout << endl;
+	cout << estCarree(matrice1);
+	cout << endl;
+	cout << estReguliere(matrice1);
 
    return EXIT_SUCCESS;
 }

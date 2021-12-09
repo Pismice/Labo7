@@ -38,3 +38,24 @@ Vecteur sommeColonne(const Matrice& matrice)
    return reponse;
 }
 
+bool estCarree(const Matrice& matrice){
+	if (matrice.empty())
+		return true;
+	for (size_t i=0; i<matrice.size(); ++i) {
+		if (matrice[i].size() != matrice.size())
+			return false;
+	}
+	return true;
+}
+
+bool estReguliere(const Matrice& matrice) {
+	if (matrice.empty())
+		return true;
+	
+	for (size_t i = 1; i < matrice.size(); ++i) {
+		if (matrice[0].size() != matrice[i].size())
+			return false;
+	}
+
+	return true;
+}
