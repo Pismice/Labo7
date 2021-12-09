@@ -32,6 +32,7 @@ int main() {
 	cout << estCarree(matrice1);
 	cout << endl;
 	cout << estReguliere(matrice1);
+	shuffleMatrice(matrice1);
 
    return EXIT_SUCCESS;
 }

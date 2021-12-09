@@ -5,8 +5,11 @@
 #include "matrice.h"
 #include "vecteur.h"
 #include <algorithm>
+#include <chrono>
+#include <random>
 
 using namespace std;
+unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
 void plusGrandeValeur(Vecteur v)
 {
@@ -32,9 +35,7 @@ Vecteur sommeColonne(const Matrice& matrice)
 
    // TODO: LA TAILLE DE REPONSE DOIT CORRESPONDRE AU PLUS LONG VECTEUR
    Vecteur reponse(matrice.size());
-
-
-
+	
    return reponse;
 }
 
@@ -51,11 +52,16 @@ bool estCarree(const Matrice& matrice){
 bool estReguliere(const Matrice& matrice) {
 	if (matrice.empty())
 		return true;
-	
+
 	for (size_t i = 1; i < matrice.size(); ++i) {
 		if (matrice[0].size() != matrice[i].size())
 			return false;
 	}
 
 	return true;
+}
+
+void shuffleMatrice(Matrice& matrice){
+	shuffle(matrice.begin(), matrice.end(), default_random_engine(seed));
+
 }
