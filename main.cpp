@@ -21,16 +21,18 @@ using namespace std;
 int main() {
 
    Vecteur vecteur1 {1, 0, -7, 4};
-   Matrice matrice1 {{3, 5, 7},
-                     {5, 2, 3},
-                     {1, 0, 2}};
+   Matrice matrice1 {{3, 5, 3, 4},
+                     {5, 2, 3, 4},
+                     {1, 0, 2, 4}};
 
 
    cout << sommeLigne(matrice1);
 	cout << boolalpha;
 	cout << endl;
+
 	cout << estCarree(matrice1);
 	cout << endl;
+
 	cout << estReguliere(matrice1);
 	shuffleMatrice(matrice1);
 

@@ -11,9 +11,33 @@
 using namespace std;
 unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
-void plusGrandeValeur(Vecteur v)
+bool estDeMemeTaille(const Vecteur v1, const Vecteur v2)
+{
+   if(v1.size() == v2.size())
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
+}
+
+bool plusGrandeValeur(Vecteur v)
 {
    v.size();
+}
+
+bool estPlusPetitQue(const Vecteur v1, const Vecteur v2)
+{
+   if(v1.size() < v2.size())
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
 }
 
 Vecteur sommeLigne(const Matrice& matrice)
@@ -40,25 +64,20 @@ Vecteur sommeColonne(const Matrice& matrice)
 }
 
 bool estCarree(const Matrice& matrice){
-	if (matrice.empty())
-		return true;
-	for (size_t i=0; i<matrice.size(); ++i) {
-		if (matrice[i].size() != matrice.size())
-			return false;
-	}
+	if(!matrice.empty())
+   {
+      bool reponse = min_element(matrice.begin(), matrice.end(), estPlusPetitQue)->size() == matrice.size();
+      return reponse;
+   }
 	return true;
 }
 
 bool estReguliere(const Matrice& matrice) {
-	if (matrice.empty())
-		return true;
-
-	for (size_t i = 1; i < matrice.size(); ++i) {
-		if (matrice[0].size() != matrice[i].size())
-			return false;
-	}
-
-	return true;
+	if(!matrice.empty())
+   {
+      return equal(matrice.begin(), matrice.end()-1, matrice.begin()+1, estDeMemeTaille);
+   }
+   return true;
 }
 
 void shuffleMatrice(Matrice& matrice){
