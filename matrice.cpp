@@ -23,10 +23,10 @@ bool estDeMemeTaille(const Vecteur v1, const Vecteur v2)
    }
 }
 
-bool plusGrandeValeur(Vecteur v)
+/*bool plusGrandeValeur(Vecteur v)
 {
    v.size();
-}
+}*/
 
 bool estPlusPetitQue(const Vecteur v1, const Vecteur v2)
 {
@@ -56,10 +56,9 @@ Vecteur sommeColonne(const Matrice& matrice)
    // for_each(matrice.begin(), matrice.end(), plusGrandeValeur);
    Vecteur longeurDesLignes(matrice.size());
 
-
    // TODO: LA TAILLE DE REPONSE DOIT CORRESPONDRE AU PLUS LONG VECTEUR
    Vecteur reponse(matrice.size());
-	
+
    return reponse;
 }
 
@@ -82,5 +81,8 @@ bool estReguliere(const Matrice& matrice) {
 
 void shuffleMatrice(Matrice& matrice){
 	shuffle(matrice.begin(), matrice.end(), default_random_engine(seed));
+}
 
+void sortMatrice(Matrice& matrice){
+sort(matrice.begin(), matrice.end(), mini);
 }

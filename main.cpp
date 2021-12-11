@@ -25,7 +25,6 @@ int main() {
                      {5, 2, 3, 4},
                      {1, 0, 2, 4}};
 
-
    cout << sommeLigne(matrice1);
 	cout << boolalpha;
 	cout << endl;
@@ -34,7 +33,10 @@ int main() {
 	cout << endl;
 
 	cout << estReguliere(matrice1);
+	sortMatrice(matrice1);
 	shuffleMatrice(matrice1);
+
+
 
    return EXIT_SUCCESS;
 }

@@ -16,5 +16,5 @@ using Vecteur = std::vector<int>;
 std::ostream& operator <<(std::ostream& os, const Vecteur& vecteur);
 
 int somme(const Vecteur& vecteur);
-
+bool mini(Vecteur& vecteur1,Vecteur& vecteur2);
 #endif //LABO7_VECTEUR_H
