@@ -32,8 +32,9 @@ bool mini(Vecteur& vecteur1,Vecteur& vecteur2){
 	(vecteur2.begin(), vecteur2.end()));
 }
 
-bool somme_min(Vecteur& vecteur1)
+
+bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
 {
-	return ((accumulate(vecteur1.begin(), vecteur1.end(), 0))
-			  < (accumulate(vecteur1.begin(), vecteur1.end(), 0)));
+	return (accumulate(vecteur1.begin(), vecteur1.end(), 0))
+			 < (accumulate(vecteur2.begin(), vecteur2.end(), 0));
 }

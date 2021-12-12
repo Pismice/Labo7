@@ -88,6 +88,7 @@ void sortMatrice(Matrice& matrice){
 }
 
 Vecteur vectSommeMin(const Matrice& matrice){
-	Vecteur reponse(matrice.size());
-	min_element(matrice.begin(), matrice.end(), somme_min);
+	Vecteur v_min;
+	return v_min = *min_element(matrice.begin(), matrice.end(), somme_min);
+
 }
