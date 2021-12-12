@@ -9,7 +9,8 @@ Description     : Définitions permettant de manipuler des matrices via de nombr
                   sortie. Il est également possible de manipuler les vecteurs
                   et de les afficher
 
-Remarque(s)     : -
+Remarque(s)     : - Le random pour la fonction shuffleMatrice est générée sur un seed
+                    basé sur l'heure
 
 Compilateur     : Mingw-w64 g++ 11.2.0
 -----------------------------------------------------------------------------------
@@ -21,9 +22,96 @@ Compilateur     : Mingw-w64 g++ 11.2.0
 
 using namespace std;
 
+// Manipulation des vecteurs -----------------------------------------------------
+
+std::ostream& operator <<(ostream& os, const Vecteur & vecteur)
+{
+   os << '(';
+
+   if (vecteur.begin() != vecteur.end())
+   {
+      std::ostream_iterator<int> sortie(os, ", ");
+      Vecteur::const_iterator it = prev(vecteur.end());
+      copy(vecteur.begin(), it, sortie);
+      os << *it;
+   }
+
+   os << ')';
+   return os;
+}
+
+/**
+ * Effectue la somme de tous les éléments d'un vecteur
+ * @param vecteur Vecteur utilisé
+ * @return Somme des éléments du vecteur
+ */
+int somme(const Vecteur& vecteur)
+{
+   return accumulate(vecteur.begin(), vecteur.end(), 0);
+}
+
+/**
+ * Compare le plus petit élément de 2 vecteurs
+ * @param vecteur1 Vecteur 1
+ * @param vecteur2 Vecteur 2
+ * @return Retourne vrai si le vecteur 1 a un élément minimum plus petit que vecteur 2
+ */
+bool mini(Vecteur& vecteur1,Vecteur& vecteur2){
+   return (*min_element (vecteur1.begin(), vecteur1.end()) < *min_element
+      (vecteur2.begin(), vecteur2.end()));
+}
+
+/**
+ * TODO
+ * @param vecteur1
+ * @param vecteur2
+ * @return
+ */
+bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
+{
+   return (accumulate(vecteur1.begin(), vecteur1.end(), 0))
+          < (accumulate(vecteur2.begin(), vecteur2.end(), 0));
+}
+
+/**
+ * TODO
+ * @param vecteur1
+ * @param vecteur2
+ * @return
+ */
+bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
+{
+   return vecteur1.size() < vecteur2.size();
+}
+
+//Vecteur sommeColonne(Vecteur vecteur1,Vecteur& vecteur2){
+//   const size_t MAX_SIZE = max(vecteur1.size(), vecteur2.size());
+//   if (vecteur1.size() < MAX_SIZE)
+//      vecteur1.resize(MAX_SIZE, 0);
+//   else if (vecteur2.size() < MAX_SIZE)
+//      vecteur2.resize(MAX_SIZE, 0);
+//
+//   Vecteur vecteur3(MAX_SIZE, 0);
+//   transform(vecteur1.begin(), vecteur1.end(), vecteur2.begin(), vecteur3.begin(),
+//             add);
+//   return vecteur3;
+//}
+
 // Manipulation des matrices -----------------------------------------------------
 
-unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+std::ostream& operator <<(std::ostream& os, const Matrice& matrice)
+{
+   os << '[';
+
+   if (matrice.begin() != matrice.end()) {
+      Matrice ::const_iterator it = prev(matrice.end());
+      for_each(matrice.begin(), it, [](Vecteur v) {cout << v << ", ";});
+      os << *it;
+   }
+
+   os << ']';
+   return os;
+}
 
 bool estDeMemeTaille(const Vecteur v1, const Vecteur v2)
 {
@@ -72,16 +160,16 @@ Vecteur sommeColonne(const Matrice& matrice)
 }
 
 bool estCarree(const Matrice& matrice){
-	if(!matrice.empty())
+   if(!matrice.empty())
    {
       bool reponse = min_element(matrice.begin(), matrice.end(), estPlusPetitQue)->size() == matrice.size();
       return reponse;
    }
-	return true;
+   return true;
 }
 
 bool estReguliere(const Matrice& matrice) {
-	if(!matrice.empty())
+   if(!matrice.empty())
    {
       return equal(matrice.begin(), matrice.end()-1, matrice.begin()+1, estDeMemeTaille);
    }
@@ -89,75 +177,21 @@ bool estReguliere(const Matrice& matrice) {
 }
 
 void shuffleMatrice(Matrice& matrice){
-	shuffle(matrice.begin(), matrice.end(), default_random_engine(seed));
+   unsigned seed = unsigned(std::chrono::system_clock::now().time_since_epoch().count());
+   shuffle(matrice.begin(), matrice.end(), default_random_engine(seed));
 }
 
 void sortMatrice(Matrice& matrice){
-	sort(matrice.begin(), matrice.end(), mini);
+   sort(matrice.begin(), matrice.end(), mini);
 }
 
 Vecteur vectSommeMin(const Matrice& matrice){
-	Vecteur v_min;
-	return v_min = *min_element(matrice.begin(), matrice.end(), somme_min);
+   Vecteur v_min;
+   return v_min = *min_element(matrice.begin(), matrice.end(), somme_min);
 
 }
 
 size_t minCol(const Matrice& matrice){
 
-	return min_element(matrice.begin(), matrice.end(), taille_min)->size();
-}
-
-
-// Manipulation des vecteurs -----------------------------------------------------
-
-std::ostream& operator <<(std::ostream& os, const std::vector<int>& vecteur)
-{
-   os << '(';
-
-   if (vecteur.begin() != vecteur.end())
-   {
-      std::ostream_iterator<int> sortie(os, ", ");
-      Vecteur::const_iterator it = prev(vecteur.end());
-      copy(vecteur.begin(), it, sortie);
-      os << *it;
-   }
-
-   os << ')';
-   return os;
-}
-
-int somme(const Vecteur& vecteur)
-{
-   return accumulate(vecteur.begin(), vecteur.end(), 0);
-}
-
-bool mini(Vecteur& vecteur1,Vecteur& vecteur2){
-
-   return (*min_element (vecteur1.begin(), vecteur1.end()) < *min_element
-      (vecteur2.begin(), vecteur2.end()));
-}
-
-
-bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
-{
-   return (accumulate(vecteur1.begin(), vecteur1.end(), 0))
-          < (accumulate(vecteur2.begin(), vecteur2.end(), 0));
-}
-
-bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
-{
-   return vecteur1.size() < vecteur2.size();
-}
-
-Vecteur sommeColonne(Vecteur vecteur1,Vecteur& vecteur2){
-   const size_t MAX_SIZE = max(vecteur1.size(), vecteur2.size());
-   if (vecteur1.size() < MAX_SIZE)
-      vecteur1.resize(MAX_SIZE, 0);
-   else if (vecteur2.size() < MAX_SIZE)
-      vecteur2.resize(MAX_SIZE, 0);
-
-   Vecteur vecteur3(MAX_SIZE, 0);
-   transform(vecteur1.begin(), vecteur1.end(), vecteur2.begin(), vecteur3.begin(),
-             add);
-   return vecteur3;
+   return min_element(matrice.begin(), matrice.end(), taille_min)->size();
 }
