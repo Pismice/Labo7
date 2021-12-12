@@ -62,6 +62,7 @@ Vecteur sommeLigne(const Matrice& matrice);
 
 /**
  * Retourne la somme de chaque colonne de la matrice
+ * Remarques: on a décidé de passer en copie 
  * @param matrice Matrice utilisée
  * @return Vecteur la somme de chaque colonne de la matrice
  */

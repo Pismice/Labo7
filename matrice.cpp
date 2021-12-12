@@ -62,7 +62,7 @@ bool mini(Vecteur& vecteur1,Vecteur& vecteur2){
 }
 
 /**
- * TODO
+ * Retourne true si la somme de vecteur 1 est inférieur
  * @param vecteur1
  * @param vecteur2
  * @return
@@ -74,7 +74,7 @@ bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
 }
 
 /**
- * TODO
+ * Retourne true si la taille de vecteur 1 est inférieur
  * @param vecteur1
  * @param vecteur2
  * @return
@@ -92,7 +92,7 @@ std::ostream& operator <<(std::ostream& os, const Matrice& matrice)
 
    if (matrice.begin() != matrice.end()) {
       Matrice ::const_iterator it = prev(matrice.end());
-      for_each(matrice.begin(), it, [](Vecteur v) {cout << v << ", ";});
+      for_each(matrice.begin(), it, [](const Vecteur& v) {cout << v << ", ";});
       os << *it;
    }
 
