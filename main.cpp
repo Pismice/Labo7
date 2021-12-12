@@ -4,9 +4,10 @@ Nom du fichier  : <nom du fichier>.<xxx> (xxx = h ou cpp)
 Auteur(s)       : Jérémie Santoro, Keya Dessasa
 Date creation   : 08.12.2021
 
-Description     : <à compléter>
+Description     : Ce programme permet de tester les fonctionnalités de base des
+                  libraires matrice et vecteur et d'afficher les résultats
 
-Remarque(s)     : <à compléter>
+Remarque(s)     : -
 
 Compilateur     : Mingw-w64 g++ 11.2.0
 -----------------------------------------------------------------------------------

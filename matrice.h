@@ -1,17 +1,28 @@
-//
-// Created by pismice on 08.12.2021.
-//
+/*
+-----------------------------------------------------------------------------------
+Nom du fichier  : matrice.h
+Auteur(s)       : Jérémie Santoro, Keya Dessasa
+Date creation   : 08.12.2021
+
+Description     : Cette interface permet de manipuler des matrices via de nombreuses
+                  fonctions ainsi que l'affichage de celles-ci via un opérateur de
+                  sortie.
+
+Remarque(s)     : -
+
+Compilateur     : Mingw-w64 g++ 11.2.0
+-----------------------------------------------------------------------------------
+*/
 
 #ifndef LABO7_MATRICE_H
 #define LABO7_MATRICE_H
 
-// TODO: REFLECHIR SI IL FAUT LAISSER L INCLUDE ICI AINSI QUE LES USING
 #include <iostream>
 #include "vecteur.h"
+
 using Matrice = std::vector<Vecteur>;
 
 std::ostream& operator<< (std::ostream& os, const Matrice& matrice);
-
 
 bool estCarree(const Matrice& matrice);
 
@@ -23,7 +34,6 @@ Vecteur sommeColonne(const Matrice& matrice);
 
 Vecteur vectSommeMin(const Matrice& matrice);
 
-// TODO : tester le & si necessaire ou pas
 void shuffleMatrice(Matrice& matrice);
 
 void sortMatrice(Matrice& matrice);
