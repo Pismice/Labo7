@@ -13,12 +13,9 @@ using Matrice = std::vector<Vecteur>;
 std::ostream& operator<< (std::ostream& os, const Matrice& matrice);
 
 
-
 bool estCarree(const Matrice& matrice);
 
 bool estReguliere(const Matrice& matrice);
-
-int minCol(const Matrice& matrice);
 
 Vecteur sommeLigne(const Matrice& matrice);
 
@@ -30,5 +27,7 @@ Vecteur vectSommeMin(const Matrice& matrice);
 void shuffleMatrice(Matrice& matrice);
 
 void sortMatrice(Matrice& matrice);
+
+size_t minCol(const Matrice& matrice);
 
 #endif //LABO7_MATRICE_H

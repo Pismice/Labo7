@@ -38,3 +38,8 @@ bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
 	return (accumulate(vecteur1.begin(), vecteur1.end(), 0))
 			 < (accumulate(vecteur2.begin(), vecteur2.end(), 0));
 }
+
+bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
+{
+	return vecteur1.size() < vecteur2.size();
+}

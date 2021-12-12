@@ -18,4 +18,5 @@ std::ostream& operator <<(std::ostream& os, const Vecteur& vecteur);
 int somme(const Vecteur& vecteur);
 bool somme_min(const Vecteur& vecteur1, const Vecteur& vecteur2);
 bool mini(Vecteur& vecteur1,Vecteur& vecteur2);
+bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2);
 #endif //LABO7_VECTEUR_H

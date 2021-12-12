@@ -92,3 +92,8 @@ Vecteur vectSommeMin(const Matrice& matrice){
 	return v_min = *min_element(matrice.begin(), matrice.end(), somme_min);
 
 }
+
+size_t minCol(const Matrice& matrice){
+
+	return min_element(matrice.begin(), matrice.end(), taille_min)->size();
+}

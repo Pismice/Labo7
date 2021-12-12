@@ -35,6 +35,7 @@ int main() {
 	cout << estReguliere(matrice1);
 	sortMatrice(matrice1);
 	shuffleMatrice(matrice1);
+	cout <<  minCol(matrice1);
 
 
 
