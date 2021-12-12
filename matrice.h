@@ -12,11 +12,13 @@ using Matrice = std::vector<Vecteur>;
 
 std::ostream& operator<< (std::ostream& os, const Matrice& matrice);
 
+
+
 bool estCarree(const Matrice& matrice);
 
 bool estReguliere(const Matrice& matrice);
 
-int minCol(const Matrice&);
+int minCol(const Matrice& matrice);
 
 Vecteur sommeLigne(const Matrice& matrice);
 

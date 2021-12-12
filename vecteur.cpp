@@ -28,6 +28,12 @@ int somme(const Vecteur& vecteur)
 
 bool mini(Vecteur& vecteur1,Vecteur& vecteur2){
 
-	return (*min_element (vecteur1.begin(), vecteur1.end()) < *min_element (vecteur2
-																										.begin(), vecteur2.end()));
+	return (*min_element (vecteur1.begin(), vecteur1.end()) < *min_element
+	(vecteur2.begin(), vecteur2.end()));
+}
+
+bool somme_min(Vecteur& vecteur1)
+{
+	return ((accumulate(vecteur1.begin(), vecteur1.end(), 0))
+			  < (accumulate(vecteur1.begin(), vecteur1.end(), 0)));
 }

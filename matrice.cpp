@@ -84,5 +84,10 @@ void shuffleMatrice(Matrice& matrice){
 }
 
 void sortMatrice(Matrice& matrice){
-sort(matrice.begin(), matrice.end(), mini);
+	sort(matrice.begin(), matrice.end(), mini);
+}
+
+Vecteur vectSommeMin(const Matrice& matrice){
+	Vecteur reponse(matrice.size());
+	min_element(matrice.begin(), matrice.end(), somme_min);
 }
