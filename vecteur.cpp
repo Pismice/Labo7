@@ -43,3 +43,16 @@ bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
 {
 	return vecteur1.size() < vecteur2.size();
 }
+
+Vecteur sommeColonne(Vecteur vecteur1,Vecteur& vecteur2){
+	const size_t MAX_SIZE = max(vecteur1.size(), vecteur2.size());
+	if (vecteur1.size() < MAX_SIZE)
+		vecteur1.resize(MAX_SIZE, 0);
+	else if (vecteur2.size() < MAX_SIZE)
+		vecteur2.resize(MAX_SIZE, 0);
+
+	Vecteur vecteur3(TAILLE_MAX, 0);
+	transform(vecteur1.begin(), vecteur1.end(), vecteur2.begin(), vecteur3.begin(),
+				 add);
+	return vecteur3;
+}
