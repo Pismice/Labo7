@@ -84,19 +84,6 @@ bool taille_min(const Vecteur& vecteur1, const Vecteur& vecteur2)
    return vecteur1.size() < vecteur2.size();
 }
 
-//Vecteur sommeColonne(Vecteur vecteur1,Vecteur& vecteur2){
-//   const size_t MAX_SIZE = max(vecteur1.size(), vecteur2.size());
-//   if (vecteur1.size() < MAX_SIZE)
-//      vecteur1.resize(MAX_SIZE, 0);
-//   else if (vecteur2.size() < MAX_SIZE)
-//      vecteur2.resize(MAX_SIZE, 0);
-//
-//   Vecteur vecteur3(MAX_SIZE, 0);
-//   transform(vecteur1.begin(), vecteur1.end(), vecteur2.begin(), vecteur3.begin(),
-//             add);
-//   return vecteur3;
-//}
-
 // Manipulation des matrices -----------------------------------------------------
 
 std::ostream& operator <<(std::ostream& os, const Matrice& matrice)
@@ -113,21 +100,9 @@ std::ostream& operator <<(std::ostream& os, const Matrice& matrice)
    return os;
 }
 
-bool estDeMemeTaille(const Vecteur v1, const Vecteur v2)
+bool estDeMemeTaille(const Vecteur& v1, const Vecteur& v2)
 {
    if(v1.size() == v2.size())
-   {
-      return true;
-   }
-   else
-   {
-      return false;
-   }
-}
-
-bool estPlusPetitQue(const Vecteur v1, const Vecteur v2)
-{
-   if(v1.size() < v2.size())
    {
       return true;
    }
@@ -158,7 +133,7 @@ size_t maxCol(const Matrice& matrice){
 }
 
 Vecteur sommeColonne(Matrice matrice1){
-   size_t max_size = 0;
+   size_t max_size;
    max_size = maxCol(matrice1);
    for(auto & i : matrice1){
       if(i.size() < max_size){
@@ -206,8 +181,7 @@ void sortMatrice(Matrice& matrice){
 }
 
 Vecteur vectSommeMin(const Matrice& matrice){
-   Vecteur v_min;
-   return v_min = *min_element(matrice.begin(), matrice.end(), somme_min);
+   return *min_element(matrice.begin(), matrice.end(), somme_min);
 
 }
 
