@@ -65,7 +65,7 @@ Vecteur sommeLigne(const Matrice& matrice);
  * @param matrice Matrice utilisée
  * @return Vecteur la somme de chaque colonne de la matrice
  */
-Vecteur sommeColonne(const Matrice& matrice);
+Vecteur sommeColonne(Matrice matrice);
 
 /**
  * Retourne la ligne d'une matrice dont la somme est la plus faible

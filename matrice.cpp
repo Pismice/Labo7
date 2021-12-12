@@ -147,25 +147,45 @@ Vecteur sommeLigne(const Matrice& matrice)
    return reponse;
 }
 
-Vecteur sommeColonne(const Matrice& matrice)
+bool taille_max(const Vecteur& vecteur1, const Vecteur& vecteur2)
 {
-   // Trouver le plus grand vecteur de la matrice
-   // for_each(matrice.begin(), matrice.end(), plusGrandeValeur);
-   Vecteur longeurDesLignes(matrice.size());
+   return vecteur1.size() < vecteur2.size();
+}
 
-   // TODO: LA TAILLE DE REPONSE DOIT CORRESPONDRE AU PLUS LONG VECTEUR
-   Vecteur reponse(matrice.size());
+size_t maxCol(const Matrice& matrice){
 
-   return reponse;
+   return max_element(matrice.begin(), matrice.end(), taille_max)->size();
+}
+
+Vecteur sommeColonne(Matrice matrice1){
+   size_t max_size = 0;
+   max_size = maxCol(matrice1);
+   for(auto & i : matrice1){
+      if(i.size() < max_size){
+         i.resize(max_size,0);
+      }
+   }
+
+   Vecteur v3;
+   v3.resize(max_size,0);
+   for(size_t i = 0; i < max_size; ++i){
+      for(auto & j : matrice1){
+         v3[i]+= j[i];
+      }
+   }
+
+   return v3;
 }
 
 bool estCarree(const Matrice& matrice){
-   if(!matrice.empty())
+   if(matrice.empty() || (estReguliere(matrice) && matrice.at(0).size() == matrice.size()))
    {
-      bool reponse = min_element(matrice.begin(), matrice.end(), estPlusPetitQue)->size() == matrice.size();
-      return reponse;
+      return true;
    }
-   return true;
+   else
+   {
+      return false;
+   }
 }
 
 bool estReguliere(const Matrice& matrice) {

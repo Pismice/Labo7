@@ -1,6 +1,6 @@
 /*
 -----------------------------------------------------------------------------------
-Nom du fichier  : <nom du fichier>.<xxx> (xxx = h ou cpp)
+Nom du fichier  : main.cpp
 Auteur(s)       : Jérémie Santoro, Keya Dessasa
 Date creation   : 08.12.2021
 
@@ -41,7 +41,6 @@ int main() {
    cout << endl;
 
    // 2. Test si la matrice est carrée
-   // TODO : MARCHE PAS !
    cout << "Les matrices sont-elles carrées ?"  << endl;
    cout << "Matrice 1 :" << estCarree(matrice1) << endl;
    cout << "Matrice 2 :" << estCarree(matrice2) << endl;
@@ -70,12 +69,11 @@ int main() {
    cout << endl;
 
    // 6. Test de la somme des colonnes des matrices suivantes
-   // TODO
-//   cout << "Quel est la somme des colonnes des matrices suivantes ?"    << endl;
-//   cout << "Matrice 1 :" << sommeColonne(matrice1)                      << endl;
-//   cout << "Matrice 2 :" << sommeColonne(matrice2)                      << endl;
-//   cout << "Matrice 3 :" << sommeColonne(matrice3)                      << endl;
-//   cout << endl;
+   cout << "Quel est la somme des colonnes des matrices suivantes ?"    << endl;
+   cout << "Matrice 1 :" << sommeColonne(matrice1)                      << endl;
+   cout << "Matrice 2 :" << sommeColonne(matrice2)                      << endl;
+   cout << "Matrice 3 :" << sommeColonne(matrice3)                      << endl;
+   cout << endl;
 
    // 7. Test retourne la ligne d'une matrice dont la sommes est la plus faible
    cout << "Retourne la ligne d'une matrice dont la sommes est la plus faible ?"        << endl;
