@@ -156,7 +156,7 @@ Vecteur sommeColonne(Vecteur vecteur1,Vecteur& vecteur2){
    else if (vecteur2.size() < MAX_SIZE)
       vecteur2.resize(MAX_SIZE, 0);
 
-   Vecteur vecteur3(TAILLE_MAX, 0);
+   Vecteur vecteur3(MAX_SIZE, 0);
    transform(vecteur1.begin(), vecteur1.end(), vecteur2.begin(), vecteur3.begin(),
              add);
    return vecteur3;
